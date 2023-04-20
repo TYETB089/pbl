@@ -1,9 +1,9 @@
 class Example{
     public int num1,num2;
-    Example(int x,int y)
+    Example(int num1,int num2)
     {
-        num1=x;
-        num2=y;
+        this.num1=num1;
+        this.num2=num2;
         System.out.println("Parameterized Constructor with 2 arguments");
         System.out.println("the value of num1 is:"+num1);
         System.out.println("the value of num2 is : "+num2);
@@ -32,7 +32,7 @@ class Example{
         return num1+num2;
     }
 }
-public class Overloading {
+public class anand{
     public static void main(String[] args){
         Example e1=new Example(40,50);
         Example e2=new Example(60);
