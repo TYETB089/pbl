@@ -1,0 +1,39 @@
+import java.util.Scanner;
+interface Celsius{
+    public double faherenheitToCelsius();
+}
+interface Faherenheit{
+    public double celsiustoFaherenheit();
+}
+class Temperature implements Celsius,Faherenheit{
+    public double faherenheitToCelsius()
+    {
+        double faherenheit;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the temp in faherenheit: ");
+        faherenheit=sc.nextDouble();
+        return((faherenheit-32)*5)/9;
+    }
+    public double celsiusTOFaherenheit()
+    {
+        double celcius;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("neter the temp in celcius:");
+        celcius=sc.nextDouble();
+        return((celcius*9)/5)+32;
+    }
+
+    @Override
+    public double celsiustoFaherenheit() {
+        return 0;
+    }
+}
+public class Pract {
+    public static void main(String[] args ){
+        Temperature temp=new Temperature();
+        System.out.println("temp in celcius :"+temp.faherenheitToCelsius());
+
+        System.out.println("temp in celcius:"+temp.celsiusTOFaherenheit());
+
+    }
+}
