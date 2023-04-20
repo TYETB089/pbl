@@ -18,7 +18,7 @@ class Temperature implements Celsius,Faherenheit{
     {
         double celcius;
         Scanner sc=new Scanner(System.in);
-        System.out.println("neter the temp in celcius:");
+        System.out.println("enter the temp in celcius:");
         celcius=sc.nextDouble();
         return((celcius*9)/5)+32;
     }
@@ -28,12 +28,12 @@ class Temperature implements Celsius,Faherenheit{
         return 0;
     }
 }
-public class Pract {
+public class anand {
     public static void main(String[] args ){
         Temperature temp=new Temperature();
         System.out.println("temp in celcius :"+temp.faherenheitToCelsius());
 
-        System.out.println("temp in celcius:"+temp.celsiusTOFaherenheit());
+        System.out.println("temp in fahrenhite:"+temp.celsiusTOFaherenheit());
 
     }
 }
