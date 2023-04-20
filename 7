@@ -1,0 +1,23 @@
+//arrayoutofindex
+import java.util.Scanner;
+
+public class Arrayindexexcept {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int a[]=new int[5];
+        try{
+            for(int i=0;i<5;i++){
+                System.out.println("enter any integer");
+                a[i]= sc.nextInt();
+            }
+            for(int i=0;i<=5;i++){
+                System.out.println(a[i]);
+            }
+            System.out.println("code execueted without any error");
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("there was an error inside a code");
+            System.out.println("error is due to"+e.getMessage());
+        }
+        System.out.println("application ended");
+    }
+}
