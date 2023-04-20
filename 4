@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+class Player {
+    String nationality;
+    int player_id;
+    Scanner sc=new Scanner(System.in);
+    void getData1()
+    {
+        System.out.println("enter the nationality of player:");
+        nationality=sc.next();
+        System.out.print(" enter the player id :");
+        player_id=sc.nextInt();
+    }
+    void showData1(){
+        System.out.print("Nationality of Player:"+nationality);
+        System.out.print("Player ID:"+player_id);
+    }
+}
+class Cricket_player extends Player
+{
+    double bat_avg;
+    void getData2(){
+        getData1();
+        System.out.println("batting avg of player");
+        bat_avg=sc.nextDouble();
+    }
+    void showData2(){
+        showData1();
+        System.out.println("batting avg of player: "+bat_avg);
+    }
+}
+class Football_player extends Player
+{
+    int goals;
+    void getData3(){
+        getData1();
+        System.out.println("avg goals ");
+        goals=sc.nextInt();
+    }
+    void showData3(){
+        showData1();
+        System.out.println("goals avg: "+goals);
+    }
+}
+class Hockey_player extends Player
+{
+    int av_golas;
+    void getData4(){
+        getData1();
+        System.out.println("avg of goals h");
+        av_golas=sc.nextInt();
+    }
+    void showData4(){
+        showData1();
+        System.out.println(" avg of golas h: "+av_golas);
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        System.out.println("Cricket player details:");
+        Cricket_player cric=new Cricket_player();
+        cric.getData2();
+        System.out.println("Football player details:");
+        Football_player foot=new Football_player();
+        foot.getData3();
+        System.out.println("Hockey player details:");
+        Hockey_player hock=new Hockey_player();
+        hock.getData4();
+        System.out.println("Cricket player details:");
+
+        cric.showData2();
+        System.out.println("Football player details:");
+
+        foot.showData3();
+        System.out.println("Hockey player details:");
+
+        hock.showData4();
+
+    }
+
+}
