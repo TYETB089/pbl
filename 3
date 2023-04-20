@@ -1,0 +1,43 @@
+class Example{
+    public int num1,num2;
+    Example(int x,int y)
+    {
+        num1=x;
+        num2=y;
+        System.out.println("Parameterized Constructor with 2 arguments");
+        System.out.println("the value of num1 is:"+num1);
+        System.out.println("the value of num2 is : "+num2);
+        System.out.println("");
+
+
+    }
+    Example(int x){
+        num1=num2=x;
+        System.out.println("parametrized constructer with  one argument:");
+        System.out.println("the value of num1 is:"+num1);
+        System.out.println("the value of num2 is:"+num2);
+        System.out.println("");
+
+
+    }
+    public int add(int a,int b){
+        num1=a;
+        num2=b;
+        return num1+num2;
+
+    }
+    public int add(float a,float b){
+        num1=(int)a;
+        num2=(int)b;
+        return num1+num2;
+    }
+}
+public class Overloading {
+    public static void main(String[] args){
+        Example e1=new Example(40,50);
+        Example e2=new Example(60);
+        System.out.println("method overloading");
+        System.out.println("the sum is:"+e1.add(25,45));
+        System.out.println("the sum is "+e2.add(27.35f,65.25f));
+    }
+}
