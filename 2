@@ -1,0 +1,53 @@
+import java.util.Scanner;
+class Rectangle{
+    double length,width,area;
+    String colour;
+    public double getLength(){
+        Scanner sc=new Scanner(System.in);
+        double length=sc.nextDouble();
+        return length;
+    }
+    public double getWidth(){
+        Scanner sc=new Scanner(System.in);
+        double width=sc.nextDouble();
+        return  width;
+    }
+
+    public String getColour() {
+        Scanner sc=new Scanner(System.in);
+        String colour=sc.next();
+        return colour;
+    }
+    public double FindArea(double a,double b){
+        area=a*b;
+        return area;
+    }
+}
+public class main {
+    public static void main(String[] args){
+        Rectangle y=new Rectangle();
+        System.out.println("enter the length of 1st rectangle");
+        double l1=y.getLength();
+        System.out.println("enter the width of 1st rectangle");
+        double w1=y.getWidth();
+        System.out.println("enter the colour of 1st rectangle");
+        String c1=y.getColour();
+
+        double a1=y.FindArea(l1,w1);
+
+
+        System.out.println("enter the length of 1st rectangle");
+        double l2=y.getLength();
+        System.out.println("enter the width of 1st rectangle");
+        double w2=y.getWidth();
+        System.out.println("enter the colour of 1st rectangle");
+        String c2=y.getColour();
+
+        double a2=y.FindArea(l2,w2);
+        if(c1.equals(c2)&&a1==a2){
+            System.out.println("matching rectangle");
+        }
+        else
+            System.out.println("non matching rectangle");
+    }
+}
