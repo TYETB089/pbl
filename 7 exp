@@ -26,13 +26,13 @@ public class anand {
 
 import java.util.Scanner;
 
-public class Arrayindexexcept {
+public class anand {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int a[]=new int[5];
         try{
-            for(int i=0;i<5;i++){
-                System.out.println("enter any integer");
+            for(int i=0;i<=5;i++){
+                System.out.print("enter "+ (i+1)+" integer : ");
                 a[i]= sc.nextInt();
             }
             for(int i=0;i<=5;i++){
