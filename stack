@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+struct Node {
+ int data;
+ Node* next;
+};
+class Stack {
+private:
+ Node* top;
+public:
+ Stack() {
+ top = NULL;
+ }
+ bool isEmpty() {
+ return top == NULL;
+ }
+ void push(int value) {
+ Node* temp = new Node();
+ temp->data = value;
+ temp->next = top;
+ top = temp;
+ }
+ int pop() {
+ if (isEmpty()) {
+ cout << "Stack Underflow" << endl;
+ return -1;
+ }
+ Node* temp = top;
+ int value = top->data;
+ top = top->next;
+ delete temp;
+ return value;
+ }
+ int peek() {
+ if (isEmpty()) {
+ cout << "Stack Underflow" << endl;
+ return -1;
+ }
+ return top->data;
+ }
+};
+int evaluatePostfix(string exp) {
+ Stack stack;
+ for (int i = 0; i < exp.length(); i++) {
+ char ch = exp[i];
+ if (isdigit(ch)) {
+ stack.push(ch - '0');
+ } else {
+ int val1 = stack.pop();
+ int val2 = stack.pop();
+ switch(ch) {
+ case '+': stack.push(val2 + val1); break;
+ case '-': stack.push(val2 - val1); break;
+ case '*': stack.push(val2 * val1); break;
+ case '/': stack.push(val2 / val1); break;
+ case '^': {
+ int res = 1;
+ while (val1 != 0) {
+ res *= val2;
+ --val1;
+ }
+ stack.push(res);
+ break;
+ }
+ }
+ }
+ }
+ return stack.pop();
+}
+int evaluatePrefix(string exp) {
+ Stack stack;
+ for (int i = exp.length() - 1; i >= 0; i--) {
+ char ch = exp[i];
+ if (isdigit(ch)) {
+ stack.push(ch - '0');
+ } else {
+ int val1 = stack.pop();
+ int val2 = stack.pop();
+ switch(ch) {
+ case '+': stack.push(val1 + val2); break;
+ case '-': stack.push(val1 - val2); break;
+ case '*': stack.push(val1 * val2); break;
+ case '/': stack.push(val1 / val2); break;
+ case '^': {
+ int res = 1;
+ while (val2 != 0) {
+ res *= val1;
+ --val2;
+ }
+ stack.push(res);
+ break; } } } }
+ return stack.pop();
+}
+int main() {
+ string exp;
+ int choice, result;
+ while (true) {
+ cout << "Select an option:\n";
+ cout << "1. Evaluate postfix expression\n";
+ cout << "2. Evaluate prefix expression\n";
+ cout << "3. Exit\n";
+ cout << "Enter your choice: ";
+ cin >> choice;
+ switch (choice) {
+ case 1:
+ cout << "Enter postfix expression: ";
+ cin >> exp;
+ result = evaluatePostfix(exp);
+ cout << "Result of postfix expression " << exp << " is " << result << endl;
+ break;
+ case 2:
+ cout << "Enter prefix expression: ";
+ cin >> exp;
+ result = evaluatePrefix(exp);
+ cout << "Result of prefix expression " << exp << " is " << result << endl;
+ break;
+ case 3:
+ cout << "Exiting program...\n";
+ return 0;
+ default:
+ cout << "Invalid choice. Please try again.\n";
+ }
+ }
+}
